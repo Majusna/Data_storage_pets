@@ -28,6 +28,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.android.pets.data.PetContract;
+import com.example.android.pets.data.PetContract.PetsEntry;
 
 /**
  * Allows user to create a new pet or edit an existing one.
@@ -88,11 +89,11 @@ public class EditorActivity extends AppCompatActivity {
                 String selection = (String) parent.getItemAtPosition(position);
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(getString(R.string.gender_male))) {
-                        mGender = PetContract.PetsEntry.GENDER_MALE; // Male
+                        mGender = PetsEntry.GENDER_MALE; // Male
                     } else if (selection.equals(getString(R.string.gender_female))) {
-                        mGender = PetContract.PetsEntry.GENDER_FEMALE; // Female
+                        mGender = PetsEntry.GENDER_FEMALE; // Female
                     } else {
-                        mGender = PetContract.PetsEntry.GENDER_UNKNOWN; // Unknown
+                        mGender = PetsEntry.GENDER_UNKNOWN; // Unknown
                     }
                 }
             }
