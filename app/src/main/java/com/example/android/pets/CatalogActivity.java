@@ -56,8 +56,6 @@ public class CatalogActivity extends AppCompatActivity {
 
         mDbHelper = new PetDbHelper(this);
 
-
-
     }
 
     private void displayDatabaseInfo() {
