@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.android.pets.data.PetContract.PetsEntry;
 
+//klasa za rukovanje bazom podataka
+
 public class PetDbHelper extends SQLiteOpenHelper{
 
     public static final int DATABASE_VERSION = 1;

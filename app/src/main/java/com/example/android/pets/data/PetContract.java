@@ -2,6 +2,8 @@ package com.example.android.pets.data;
 
 import android.provider.BaseColumns;
 
+//klasa za definisanje konstanti
+
 public final class PetContract {
 
 
