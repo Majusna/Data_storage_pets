@@ -31,8 +31,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.android.pets.data.PetContract;
-import com.example.android.pets.data.PetContract.PetsEntry;
+import com.example.android.pets.data.PetContract.PetEntry;
 import com.example.android.pets.data.PetDbHelper;
 
 /**
@@ -95,11 +94,11 @@ public class EditorActivity extends AppCompatActivity {
                 String selection = (String) parent.getItemAtPosition(position);
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(getString(R.string.gender_male))) {
-                        mGender = PetsEntry.GENDER_MALE; // Male
+                        mGender = PetEntry.GENDER_MALE; // Male
                     } else if (selection.equals(getString(R.string.gender_female))) {
-                        mGender = PetsEntry.GENDER_FEMALE; // Female
+                        mGender = PetEntry.GENDER_FEMALE; // Female
                     } else {
-                        mGender = PetsEntry.GENDER_UNKNOWN; // Unknown
+                        mGender = PetEntry.GENDER_UNKNOWN; // Unknown
                     }
                 }
             }
@@ -124,12 +123,12 @@ public class EditorActivity extends AppCompatActivity {
 
 
         ContentValues values = new ContentValues();
-        values.put(PetsEntry.COLUMN_PET_NAME, editName);
-        values.put(PetsEntry.COLUMN_PET_BREED, editBreed);
-        values.put(PetsEntry.COLUMN_PET_GENDER, mGender );
-        values.put(PetsEntry.COLUMN_PET_WEIGHT, editWeight);
+        values.put(PetEntry.COLUMN_PET_NAME, editName);
+        values.put(PetEntry.COLUMN_PET_BREED, editBreed);
+        values.put(PetEntry.COLUMN_PET_GENDER, mGender );
+        values.put(PetEntry.COLUMN_PET_WEIGHT, editWeight);
 
-        long newRowId =  db.insert(PetsEntry.TABLE_NAME, null, values);
+        long newRowId =  db.insert(PetEntry.TABLE_NAME, null, values);
 
         if (newRowId == -1){
             Toast.makeText(this, "Error with saving pet", Toast.LENGTH_SHORT).show();

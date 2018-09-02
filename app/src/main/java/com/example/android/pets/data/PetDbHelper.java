@@ -3,7 +3,7 @@ package com.example.android.pets.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.example.android.pets.data.PetContract.PetsEntry;
+import com.example.android.pets.data.PetContract.PetEntry;
 
 //klasa za rukovanje bazom podataka
 
@@ -20,12 +20,12 @@ public class PetDbHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String SQL_CREATE_PETS_TABLE = "CREATE TABLE " + PetsEntry.TABLE_NAME + " (" +
-                PetsEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                +PetsEntry.COLUMN_PET_NAME + " TEXT NOT NULL, "
-                +PetsEntry.COLUMN_PET_BREED + " TEXT, "
-                +PetsEntry.COLUMN_PET_GENDER + " INTEGER NOT NULL, "
-                +PetsEntry.COLUMN_PET_WEIGHT + " INTEGER NOT NULL DEFAULT 0);";
+        String SQL_CREATE_PETS_TABLE = "CREATE TABLE " + PetEntry.TABLE_NAME + " (" +
+                PetEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + PetEntry.COLUMN_PET_NAME + " TEXT NOT NULL, "
+                + PetEntry.COLUMN_PET_BREED + " TEXT, "
+                + PetEntry.COLUMN_PET_GENDER + " INTEGER NOT NULL, "
+                + PetEntry.COLUMN_PET_WEIGHT + " INTEGER NOT NULL DEFAULT 0);";
 
         db.execSQL(SQL_CREATE_PETS_TABLE);
 
