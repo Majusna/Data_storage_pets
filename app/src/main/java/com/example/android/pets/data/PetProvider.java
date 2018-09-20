@@ -51,7 +51,7 @@ public class PetProvider extends ContentProvider {
                         String sortOrder) {
 
         //pristupane bazi podataka --> dobijamo SQL objekat od Db helpera,
-        //posto ne pravimo nikakve proene query() metodom,koristimo getReadableDatabase() metod;
+        //posto ne pravimo nikakve promene query() metodom,koristimo getReadableDatabase() metod;
 
         SQLiteDatabase database = mDbHelper.getReadableDatabase();
 
@@ -249,4 +249,5 @@ public class PetProvider extends ContentProvider {
                 throw new IllegalStateException("Unknown URI " + uri + " with match " + match);
         }
     }
+    
 }

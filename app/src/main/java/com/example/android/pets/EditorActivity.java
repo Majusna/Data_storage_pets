@@ -15,6 +15,7 @@
  */
 package com.example.android.pets;
 
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -41,16 +42,24 @@ import com.example.android.pets.data.PetDbHelper;
 public class EditorActivity extends AppCompatActivity {
 
 
-    /** EditText field to enter the pet's name */
+    /**
+     * EditText field to enter the pet's name
+     */
     private EditText mNameEditText;
 
-    /** EditText field to enter the pet's breed */
+    /**
+     * EditText field to enter the pet's breed
+     */
     private EditText mBreedEditText;
 
-    /** EditText field to enter the pet's weight */
+    /**
+     * EditText field to enter the pet's weight
+     */
     private EditText mWeightEditText;
 
-    /** EditText field to enter the pet's gender */
+    /**
+     * EditText field to enter the pet's gender
+     */
     private Spinner mGenderSpinner;
 
     /**
@@ -118,7 +127,7 @@ public class EditorActivity extends AppCompatActivity {
         String nameString = mNameEditText.getText().toString().trim();
         String breedString = mBreedEditText.getText().toString().trim();
         String weightString = mWeightEditText.getText().toString().trim();
-        int weight = Integer.parseInt(weightString);
+        int weight = Integer.parseInt(weightString); // parseInt konvertuje string u integer
 
         // Create a ContentValues object where column names are the keys,
         // and pet attributes from the editor are the values.
@@ -157,8 +166,8 @@ public class EditorActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
-                insertPet();
-                finish();
+                insertPet();  // sacuva pet u bazu podataka
+                finish(); // zatvara editor activity i vraca se u catalog activity
                 return true;
             // Respond to a click on the "Delete" menu option
             case R.id.action_delete:
@@ -172,4 +181,5 @@ public class EditorActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

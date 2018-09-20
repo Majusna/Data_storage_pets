@@ -1,8 +1,13 @@
 package com.example.android.pets.data;
 
+import android.content.ContentProvider;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
+
 import com.example.android.pets.data.PetContract.PetEntry;
 
 //klasa za rukovanje bazom podataka
@@ -37,3 +42,7 @@ public class PetDbHelper extends SQLiteOpenHelper{
 
     }
 }
+
+
+
+

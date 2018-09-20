@@ -35,10 +35,6 @@ public final class PetContract {
      * Inner class that defines constant values for the pets database table.
      * Each entry in the table represents a single pet.
      */
-
-
-
-
     public static final class PetEntry implements BaseColumns {
 
         /**
