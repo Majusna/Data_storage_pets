@@ -46,6 +46,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     private static final int PET_LOADER = 0;
     PetCursorAdapter mCursorAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,28 +77,17 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         petListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(CatalogActivity.this, EditorActivity.class);
+                Intent intentP = new Intent(CatalogActivity.this, EditorActivity.class);
 
                 Uri currentPetUri = ContentUris.withAppendedId(PetEntry.CONTENT_URI, id);
 
-                intent.setData(currentPetUri);
+                intentP.setData(currentPetUri);
 
-                startActivity(intent);
-
-
-
+                startActivity(intentP);
             }
         });
     }
 
-    //posle vracanja u catalog activity (posto korisnik klikne na "save" u editor activitiju),
-    // lista ce biti osvezena novim ljubimcem
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
 
     /**
      * Helper method to insert hardcoded pet data into the database. For debugging purposes only.
@@ -144,20 +134,22 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
 
     @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+    public Loader<Cursor> onCreateLoader(int id, Bundle args ) {
 
-        String[] projection = {PetEntry._ID, PetEntry.COLUMN_PET_NAME, PetEntry.COLUMN_PET_BREED};
+        String[] projection = {
+                PetEntry._ID,
+                PetEntry.COLUMN_PET_NAME,
+                PetEntry.COLUMN_PET_BREED
+        };
 
+     return new CursorLoader(this,
+             PetEntry.CONTENT_URI,
+             projection,
+             null,
+             null,
+             null);
 
-        return new CursorLoader(this,
-                PetEntry.CONTENT_URI,
-                projection,
-                null,
-                null,
-                null );
-
-
-        }
+    }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
